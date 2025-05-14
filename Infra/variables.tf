@@ -7,12 +7,6 @@ variable "region" {
 variable "lambda_function_name" {
   type    = string
 }
-
-variable "lambda_runtime" {
-  type    = string
-  default = "python3.13"
-}
-
 variable "event_bus_name" {
   type    = string
 }

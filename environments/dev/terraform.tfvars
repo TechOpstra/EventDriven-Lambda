@@ -1,5 +1,4 @@
 region = "us-east-1"
 lambda_function_name  = "lambdaevent_sqs"
-lambda_runtime        = "python3.13"
 event_bus_name        = "lambda_event_bus"
 api_gateway_stage_name = "uat"

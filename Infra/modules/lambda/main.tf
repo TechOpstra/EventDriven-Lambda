@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "this" {
   function_name = var.lambda_function_name
-  runtime       = var.lambda_runtime
+  runtime       = "python3.9"
   handler       = "lambda_payload.lambda_handler"
   role          = aws_iam_role.lambda_exec.arn
 

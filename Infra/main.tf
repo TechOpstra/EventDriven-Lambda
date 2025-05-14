@@ -7,7 +7,6 @@ module "Eventbridge" {
 module "lambda" {
   source = "./modules/lambda"
   event_bus_arn = module.Eventbridge.event_bus_arn
-  lambda_runtime = var.lambda_runtime
   lambda_function_name = var.lambda_function_name
 
 }
