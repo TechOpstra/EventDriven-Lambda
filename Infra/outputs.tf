@@ -1,5 +1,5 @@
 output "event_bus_arn" {
-  value = module.eventbridge.event_bus_arn
+  value = module.Eventbridge.event_bus_arn
 }
 
 output "lambda_function_arn" {
