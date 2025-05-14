@@ -4,7 +4,7 @@ resource "aws_lambda_function" "this" {
   handler       = "function1.lambda_handler"
   role          = aws_iam_role.lambda_exec.arn
 
-  source_code_hash = filebase64sha256("lambda_function_payload.zip")
+  source_code_hash = filebase64sha256("lambda_payload.zip")
   filename         = "lambda_payload.zip"
 }
 
