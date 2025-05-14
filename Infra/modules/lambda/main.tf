@@ -2,13 +2,13 @@ resource "aws_lambda_function" "this" {
   function_name = var.lambda_function_name
   runtime       = "python3.9"
   handler       = "lambda_payload.lambda_handler"
-  role          = aws_iam_role.lambda_exec.arn
+  role          = aws_iam_role.lambda_basic_exec.arn
 
   source_code_hash = filebase64sha256("lambda_payload.zip")
   filename         = "lambda_payload.zip"
 }
 
-resource "aws_iam_role" "lambda_exec" {
+resource "aws_iam_role" "lambda_basic_exec" {
   name = "lambda_exec_role"
 
   assume_role_policy = jsonencode({
@@ -25,8 +25,8 @@ resource "aws_iam_role" "lambda_exec" {
   })
 }
 
-resource "aws_iam_role_policy" "lambda_exec" {
-  role = aws_iam_role.lambda_exec.id
+resource "aws_iam_role_policy" "lambda_basic_exec" {
+  role = aws_iam_role.lambda_basic_exec.id
 
   policy = jsonencode({
     Version = "2012-10-17",
