@@ -44,10 +44,32 @@ resource "aws_iam_role_policy" "lambda_basic_exec" {
         Action = "events:PutEvents",
         Effect = "Allow",
         Resource = var.event_bus_arn
+      },
+      {
+        # Adding SQS full access
+        Action = [
+          "sqs:SendMessage",
+          "sqs:ReceiveMessage",
+          "sqs:DeleteMessage",
+          "sqs:GetQueueAttributes",
+          "sqs:ListQueues",
+          "sqs:PurgingQueue",
+          "sqs:ListQueueTags",
+          "sqs:TagQueue"
+        ],
+        Effect   = "Allow",
+        Resource = "*"
+      },
+      {
+        # Adding EventBridge full access
+        Action = "events:*",
+        Effect = "Allow",
+        Resource = "*"
       }
     ]
   })
 }
+
 
 output "lambda_function_arn" {
   value = aws_lambda_function.this.arn
