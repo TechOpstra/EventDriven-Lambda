@@ -2,7 +2,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "eventbridge" {
+module "Eventbridge" {
   source = "./modules/eventbridge"
   #sqs_queues = module.sqs.sqs_queues
   event_bus_name = var.event_bus_name
